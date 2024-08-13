@@ -4,7 +4,7 @@ dotenv.config();
 
 const Connection = async () => {
     try{
-    mongoose.connect("mongodb+srv://kumaradarsh9379:<password>@cluster0.ipzi9pa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+    mongoose.connect("mongodb+srv://Adarshkumar:7903848803@cluster0.ipzi9pa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
     console.log("Connected")
     }
     catch(error) {
