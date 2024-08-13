@@ -17,7 +17,7 @@ router.post('/login', async (req, res) => {
      if(!validPassword){
         return res.json({meesage: "wrong password"})        
      }
-     const token = jwt.sign({username: admin.username, role: 'admin', }, process.env.Admin_Key)
+     const token = jwt.sign({username: admin.username, role: 'admin', }, admin-key)
      res.cookie('token', token, {httpOnly: true, secure: true})
      return res.json({login:true, role: 'admin'})
     }
@@ -30,7 +30,7 @@ router.post('/login', async (req, res) => {
      if(!validPassword){
         return res.json({meesage: "wrong password"})        
      }
-     const token = jwt.sign({username: student.username, role: 'student', }, process.env.Student_Key)
+     const token = jwt.sign({username: student.username, role: 'student', }, student-key)
      res.cookie('token', token, {httpOnly: true, secure: true})
      return res.json({login:true, role: 'student'})
     }
@@ -47,7 +47,7 @@ const verifyAdmin = (req, res, next) => {
     if(!token){
         return res.json({message: "Invalid Admin"})
     } else {
-      jwt.verify(token, process.env.Admin_Key, (err, decoded) => {
+      jwt.verify(token, admin-key, (err, decoded) => {
             if(err){
                 return res.json({message: "Invalid token"})
             } else {
@@ -65,9 +65,9 @@ const verifyUser = (req, res, next) => {
    if(!token){
        return res.json({message: "Invalid User"})
    } else {
-     jwt.verify(token, process.env.Admin_Key, (err, decoded) => {
+     jwt.verify(token, admin-key, (err, decoded) => {
            if(err){
-            jwt.verify(token, process.env.Student_Key, (err, decoded) => {
+            jwt.verify(token, student-key, (err, decoded) => {
                if(err){
                    return res.json({message: "Invalid token"})
                } else {
