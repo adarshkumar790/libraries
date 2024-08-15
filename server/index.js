@@ -18,6 +18,9 @@ app.use(cors({
     credentials:true
 }
 ))
+
+mongoose.connect('mongodb+srv://AdarshKumar:<password>@cluster0.bpglqqv.mongodb.net/?retryWrites=true&w=majority')
+
 app.use(cookieParser())
 dotenv.config()
 app.use('/auth', AdminRuter);
