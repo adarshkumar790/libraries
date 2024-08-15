@@ -19,7 +19,7 @@ app.use(cors({
 }
 ))
 
-mongoose.connect('mongodb+srv://AdarshKumar:<password>@cluster0.bpglqqv.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://AdarshKumar:8864087799@cluster0.bpglqqv.mongodb.net/?retryWrites=true&w=majority')
 
 app.use(cookieParser())
 dotenv.config()
